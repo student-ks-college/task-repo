@@ -33,6 +33,10 @@ export const AuthProvider = ({ children }) => {
     initAuth();
   }, []);
 
+  useEffect(() => {
+  // your code
+}, [logout]);
+
   const login = useCallback(async (email, password) => {
     const res = await authAPI.login({ email, password });
     const { token: newToken, user: newUser } = res.data;
