@@ -33,10 +33,6 @@ export const AuthProvider = ({ children }) => {
     initAuth();
   }, []);
 
-  useEffect(() => {
-  // your code
-}, [logout]);
-
   const login = useCallback(async (email, password) => {
     const res = await authAPI.login({ email, password });
     const { token: newToken, user: newUser } = res.data;
@@ -55,7 +51,7 @@ export const AuthProvider = ({ children }) => {
     const { token: newToken, user: newUser } = res.data;
 
     localStorage.setItem('token', newToken);
-    localStorage.setItem('user', JSON.stringify(newUser));
+    localStorage.setItem('user', (newUser));
 
     setToken(newToken);
     setUser(newUser);
@@ -92,3 +88,4 @@ export const useAuth = () => {
 };
 
 export default AuthContext;
+JSON.stringify
